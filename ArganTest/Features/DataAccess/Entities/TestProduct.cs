@@ -10,5 +10,7 @@ namespace ArganTest.Features.DataAccess.Entities
         public string Description { get; set; }
 
         public virtual ICollection<TestCategory> Categories { get; set; }
+
+        public virtual ICollection<TestOrderProduct> OrderProducts { get; set; }
     }
 }
