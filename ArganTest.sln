@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArganTest", "ArganTest\ArganTest.csproj", "{0EF799A5-2704-4866-A51B-B5ED9793ACD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArganTest.Tests", "ArganTest.Tests\ArganTest.Tests.csproj", "{A3ECA187-3C8E-41A9-8752-853D2EAF1C0B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{0EF799A5-2704-4866-A51B-B5ED9793ACD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EF799A5-2704-4866-A51B-B5ED9793ACD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EF799A5-2704-4866-A51B-B5ED9793ACD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3ECA187-3C8E-41A9-8752-853D2EAF1C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3ECA187-3C8E-41A9-8752-853D2EAF1C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3ECA187-3C8E-41A9-8752-853D2EAF1C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3ECA187-3C8E-41A9-8752-853D2EAF1C0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

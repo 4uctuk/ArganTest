@@ -5,11 +5,11 @@
 
 <h1>@ViewBag.Title</h1>
 <div>
-    <table class="table">
+    <table class="table" id="orders">
         @foreach (var order in Model)
         {
-            <tr id="@order.Id">
-                <td><input type="checkbox" /></td>
+            <tr>
+                <td><input type="checkbox" id="@order.Id" /></td>
                 <td>@order.Id</td>
                 <td>@order.FirstName</td>
                 <td>@order.LastName</td>
@@ -33,3 +33,37 @@
     
     <textarea rows="5" cols="50" id="result"></textarea>
 </div>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            $('#submit').click(function() {
+                var idArray = [];
+                $('#orders').find('input:checked').each(function() {
+                    idArray.push(this.id);
+                });
+                if (idArray.length > 0) {
+                    $.post("/Home/PrepareShipments",
+                        { 'orderIds': idArray },
+                        function (shippingDto) {
+                            $.ajax({
+                                type: "POST",
+                                url: "/orders",
+                                data: JSON.stringify(shippingDto),
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                processData: true,
+                                success: function(data) {
+                                    $('#result').html(JSON.stringify(data));
+                                },
+                                error: function(xhr) {
+                                    alert(xhr.responseText);
+                                }
+                            });
+                        });
+                }
+            });
+        })
+    </script>
+}
