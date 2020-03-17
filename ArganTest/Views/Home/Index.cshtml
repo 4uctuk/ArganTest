@@ -36,17 +36,22 @@
 
 @section scripts
 {
+    @*Frontend logic, doesn't move to separate file because of simplicity*@
     <script>
         $(function() {
             $('#submit').click(function() {
+
                 var idArray = [];
                 $('#orders').find('input:checked').each(function() {
                     idArray.push(this.id);
                 });
+                //filling order ids form peage
                 if (idArray.length > 0) {
-                    $.post("/Home/PrepareShipments",
+
+                    $.post("/Home/PrepareShipments", //preparing json
                         { 'orderIds': idArray },
                         function (shippingDto) {
+                            //calling main api endpoint
                             $.ajax({
                                 type: "POST",
                                 url: "/orders",
@@ -54,7 +59,8 @@
                                 contentType: "application/json; charset=utf-8",
                                 dataType: "json",
                                 processData: true,
-                                success: function(data) {
+                                success: function (data) {
+                                    //filling result area
                                     $('#result').html(JSON.stringify(data));
                                 },
                                 error: function(xhr) {

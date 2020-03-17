@@ -179,12 +179,12 @@
     <Compile Include="Features\DataAccess\Repositories\TestOrderRepository.cs" />
     <Compile Include="Features\DataAccess\Repositories\TestProductRepository.cs" />
     <Compile Include="Features\DataAccess\Repositories\UnitOfWork.cs" />
-    <Compile Include="Features\Orders\AddressDto.cs" />
+    <Compile Include="Features\Orders\Dto\AddressDto.cs" />
     <Compile Include="Features\Orders\IShipmentService.cs" />
     <Compile Include="Features\Orders\OrdersController.cs" />
-    <Compile Include="Features\Orders\ProductDto.cs" />
+    <Compile Include="Features\Orders\Dto\ProductDto.cs" />
     <Compile Include="Features\Orders\ShipmentService.cs" />
-    <Compile Include="Features\Orders\ShippingDto.cs" />
+    <Compile Include="Features\Orders\Dto\ShippingDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,9 +229,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\custom\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

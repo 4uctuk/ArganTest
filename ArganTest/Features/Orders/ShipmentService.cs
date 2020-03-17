@@ -10,12 +10,10 @@ namespace ArganTest.Features.Orders
     public class ShipmentService : IShipmentService
     {
         private readonly ITestOrderRepository _orderRepository;
-        private readonly ITestCategoryRepository _categoryRepository;
-
-        public ShipmentService(ITestOrderRepository orderRepository, ITestCategoryRepository categoryRepository)
+        
+        public ShipmentService(ITestOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
-            _categoryRepository = categoryRepository;
         }
 
         public async Task<List<ShippingDto>> SubmitForShipment(List<int> orderIds)
@@ -37,6 +35,7 @@ namespace ArganTest.Features.Orders
             var orderProductsList = group.First().TestOrderProducts;
             var productsInAllOrdersToAddress = orderProductsList.Select(c => c.TestProduct).ToList();
             var productCategories = new HashSet<int>();
+            
             foreach (var testProduct in productsInAllOrdersToAddress)
             {
                 var categories = testProduct.Categories.Select(c => c.Id).ToList();
@@ -55,7 +54,7 @@ namespace ArganTest.Features.Orders
                     State = group.Key.State,
                     Country = group.Key.Country,
                     FirstName = group.First().FirstName,
-                    LastName = group.First().LastName,
+                    LastName = group.First().LastName
                 };
 
                 var testProducts = orderProductsList.Where(p => p.TestProduct.Categories.Any(c => c.Id == categoryId)).ToList();
